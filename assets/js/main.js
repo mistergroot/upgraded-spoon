@@ -210,3 +210,77 @@
 		}
 
 })(jQuery);
+
+
+// ============================
+// Custom modal popup for research projects
+// ============================
+
+$(document).ready(function () {
+    // Create modal structure and append to body
+    $('body').append(`
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+    `);
+
+    // Modal CSS (inline for now, could go in main.css instead)
+    const modalStyles = `
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        .modal-content {
+            background: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            text-align: left;
+        }
+        .modal-close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    `;
+    $('<style>').text(modalStyles).appendTo('head');
+
+    // Sample project descriptions (match order of your images)
+    const projectInfo = {
+        "pic01.jpg": "<h3>Project 1</h3><p>Details about project 1...</p>",
+        "pic02.jpg": "<h3>Project 2</h3><p>Details about project 2...</p>",
+        "pic03.jpg": "<h3>Project 3</h3><p>Details about project 3...</p>",
+        "pic04.jpg": "<h3>Project 4</h3><p>Details about project 4...</p>"
+        // add more as needed
+    };
+
+    // Open modal when image clicked
+    $('.image.fit img').on('click', function (e) {
+        e.preventDefault();
+        const src = $(this).attr('src').split('/').pop(); // e.g., "pic01.jpg"
+        const info = projectInfo[src] || "<p>No description available.</p>";
+        $('#modal-body').html(info);
+        $('#project-modal').fadeIn();
+    });
+
+    // Close modal
+    $(document).on('click', '.modal-close', function () {
+        $('#project-modal').fadeOut();
+    });
+
+    // Close modal on background click
+    $(document).on('click', '#project-modal', function (e) {
+        if ($(e.target).is('#project-modal')) {
+            $('#project-modal').fadeOut();
+        }
+    });
+});

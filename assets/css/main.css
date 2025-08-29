@@ -72,6 +72,7 @@ input, select, textarea {
 	appearance: none;
 }
 
+
 /* Row */
 
 	.row {
@@ -1305,11 +1306,18 @@ input, select, textarea {
 		box-sizing: inherit;
 	}
 
-	body {
+/*	body {
 		background-image: url("images/overlay.png"), url("images/bg.jpg");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		background-attachment: fixed;
+		overflow-y: scroll;
+	}*/
+	body {
+		background-image: url("images/bg.jpg");
+		background-size: cover;        /* crop to fill, no stretch */
+		background-position: center;   /* keep image centered */
+		background-repeat: no-repeat;  /* don’t tile */
 		overflow-y: scroll;
 	}
 
@@ -2189,3 +2197,54 @@ input, select, textarea {
 			}
 
 		}
+
+		
+.project {
+    position: relative;
+    display: inline-block; /* or block if you want full-width */
+	width: 100%;          /* responsive container */
+    max-width: 400px;     /* max width of each thumbnail */
+    height: 400px;        /* fixed height, can adjust */
+    overflow: hidden;     /* crop anything outside */
+}
+
+.project img.thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.project .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    pointer-events: none; /* clicks pass through to a.modal-trigger */
+}
+
+.project:hover .overlay {
+    opacity: 1;
+}
+
+.row.tight {
+  margin-left: 0;
+  margin-right: 0;
+  gap: 10px; /* reduces spacing between columns if using flex */
+}
+
+.row.tight .col-6,
+.row.tight .col-4 {
+  padding-left: 5px;  /* smaller gutter */
+  padding-right: 5px;
+  margin-bottom: 10px; /* spacing between rows */
+}
+
