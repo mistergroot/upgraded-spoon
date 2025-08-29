@@ -2201,7 +2201,7 @@ input, select, textarea {
 		
 .project {
     position: relative;
-    display: inline-block; /* or block if you want full-width */
+    display: block; /* or block if you want full-width */
 	width: 100%;          /* responsive container */
     max-width: 400px;     /* max width of each thumbnail */
     height: 400px;        /* fixed height, can adjust */
@@ -2231,6 +2231,16 @@ input, select, textarea {
     pointer-events: none; /* clicks pass through to a.modal-trigger */
 }
 
+.overlay .photo-credit {
+  display: block;
+  font-size: 0.45em;       /* really small text */
+  color: #ccc;            /* light color */
+  position: absolute;
+  bottom: 5px;            /* small distance from bottom */
+  width: 100%;
+  text-align: center;
+}
+
 .project:hover .overlay {
     opacity: 1;
 }
@@ -2238,13 +2248,41 @@ input, select, textarea {
 .row.tight {
   margin-left: 0;
   margin-right: 0;
-  gap: 10px; /* reduces spacing between columns if using flex */
+  gap: 3px; /* reduces spacing between columns if using flex */
 }
 
 .row.tight .col-6,
 .row.tight .col-4 {
-  padding-left: 5px;  /* smaller gutter */
-  padding-right: 5px;
-  margin-bottom: 10px; /* spacing between rows */
+  padding-left: 3px;  /* smaller gutter */
+  padding-right: 3px;
+  margin-bottom: 3px; /* spacing between rows */
 }
 
+.pdf-container {
+  width: 100%;
+  height: 800px; /* adjust as needed */
+  border: none;
+}
+
+.project-row {
+	flex: 1;
+    display: flex;
+    flex-wrap: wrap;         /* allow wrapping on very small screens */
+    justify-content: center; /* center the projects */
+    column-gap: 0.01em;               
+	row-gap: 0em ;/* spacing between projects */
+	margin-bottom: 0;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.project-row .col-6 {
+    flex: 0 0 47%;           /* each project ~45% width to prevent wrapping */
+    max-width: 100%;
+    box-sizing: border-box;
+	height: 500px;        /* fixed height, can adjust */
+    overflow: hidden;     /* crop anything outside */
+	margin-bottom: 0;
+	margin: 0 auto;
+	text-align: center;
+}
