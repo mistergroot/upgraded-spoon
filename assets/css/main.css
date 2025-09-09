@@ -1792,12 +1792,13 @@ input, select, textarea {
 			line-height: 0.9em;
 			font-size: 2.5em;
 			margin: 0 0.25em 0 0.25em;
-			opacity: 0.35;
+			opacity: 0.65;
 			outline: 0;
 			-moz-transition: opacity .25s ease-in-out;
 			-webkit-transition: opacity .25s ease-in-out;
 			-ms-transition: opacity .25s ease-in-out;
 			transition: opacity .25s ease-in-out;
+			text-shadow: 7px 7px 10px rgba(0,0,0,0.5); /* drop shadow */
 		}
 
 			#nav a.icon:before {
@@ -2286,3 +2287,4 @@ input, select, textarea {
 	margin: 0 auto;
 	text-align: center;
 }
+

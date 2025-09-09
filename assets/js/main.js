@@ -243,7 +243,7 @@ $(document).ready(function () {
             margin: 10% auto;
             padding: 20px;
             border-radius: 8px;
-            max-width: 600px;
+            max-width: 800px;
             text-align: left;
         }
         .modal-close {
@@ -251,15 +251,37 @@ $(document).ready(function () {
             font-size: 24px;
             cursor: pointer;
         }
+		#modal-body img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
     `;
     $('<style>').text(modalStyles).appendTo('head');
 
     // Sample project descriptions (match order of your images)
     const projectInfo = {
-        "pic01.jpg": "<h3>Project 1</h3><p>Details about project 1...</p>",
-        "pic02.jpg": "<h3>Project 2</h3><p>Details about project 2...</p>",
-        "pic03.jpg": "<h3>Project 3</h3><p>Details about project 3...</p>",
-        "pic04.jpg": "<h3>Project 4</h3><p>Details about project 4...</p>"
+        "pic01.jpg": `<h3 style="text-align: center;">A Survey of Climate in 
+		Adirondack Lake Ecosystems (SCALE)</h3>
+		<p style="text-align: justify;">At Cornell, I am using 
+		environmental DNA (eDNA) to understand 
+		how aquatic communities in the Adirondack Park are changing in 
+		response to anthropogenic stressors. As part of this effort, 
+		I am also working to expand the genetic resources available 
+		for species in New York State. To this end, we are 
+		developing molecular tools targeting intraspecific variation 
+		as a means to discriminate stocked and naturally occurring 
+		brook trout, as well as exploring the feasibility of assessing 
+		genetic health of threatened species such as round whitefish 
+		using nuclear eDNA.</p>`,
+        "pic02.jpg": `<h3 style="text-align: center;">Population Genomics of Critically Endangered Caribbean Corals</h3>
+		<p style="text-align: justify;">Details about project 2...</p>`,
+        "pic03.jpg": `<h3 style="text-align: center;">Unintentional Artificial Selection in Sex-based Coral Restoration</h3>
+		<p style="text-align: justify;">Details about project 3...</p>`,
+        "pic04.jpg": `<h3 style="text-align: center;">Understanding the Globalization of the Aquaculture Using Metabarcoding of Feeds</h3>
+		<p style="text-align: justify;">Details about project 4...</p>`
         // add more as needed
     };
 
@@ -268,7 +290,13 @@ $(document).ready(function () {
         e.preventDefault();
         const src = $(this).attr('src').split('/').pop(); // e.g., "pic01.jpg"
         const info = projectInfo[src] || "<p>No description available.</p>";
-        $('#modal-body').html(info);
+
+        // Include the image in the modal body
+        $('#modal-body').html(`
+            <img src="${$(this).attr('src')}" alt="Project Image">
+            ${info}
+        `);
+
         $('#project-modal').fadeIn();
     });
 
