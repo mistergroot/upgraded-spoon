@@ -342,8 +342,8 @@ $(document).ready(function () {
 		by-products and fisheries waste products. In this study, we also 
 		introduced a novel probabilistic framework (supervised logit machine 
 		learning classifier) that allowed us to separate true feed 
-		constituents from contamination, rather than relying on somewhat 
-		arbitrary cut-offs widely used in metabarcoding to reduce false 
+		constituents from contamination, rather than relying on binary 
+		cut-offs widely used in metabarcoding to reduce false 
 		positives.</p>`
         // add more as needed
     };
