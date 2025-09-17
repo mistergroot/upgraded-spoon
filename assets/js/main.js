@@ -325,8 +325,26 @@ $(document).ready(function () {
 		neutral process, and that coral crosses need to be carefully designed 
 		and managed to preserve the adaptive potential of 
 		restored populations in changing oceans.</p>`,
-        "pic04.jpg": `<h3 style="text-align: center;">Understanding the Globalization of the Aquaculture Using Metabarcoding of Feeds</h3>
-		<p style="text-align: justify;">Details about project 4...</p>`
+        "pic04.jpg": `<h3 style="text-align: center;">Understanding the 
+		Globalization of the Aquaculture Using Metabarcoding of Feeds</h3>
+		<p style="text-align: justify;">Aquaculture is the fastest growing 
+		source of food production, but most farmed fish and shrimp still 
+		depend on feeds made with wild-caught species, raising sustainability 
+		concerns. To see what wild species are harvested and used to grow the 
+		world’s aquaculture products, we analyzed over 200 aquafeeds from 
+		30 countries using DNA metabarcoding and identified over 3000 aquatic 
+		species—about 7% of all fish species worldwide. We identified a few 
+		globalized feed species that are widely used across nearly all of the 
+		world’s major aquaculture producers. However, most species reflected 
+		strong regional patterns tied to local harvest of biodiversity and 
+		feed production. We also detected DNA from farmed species such as 
+		Atlantic salmon, highlighting the cyclical nature of aquaculture 
+		by-products and fisheries waste products. In this study, we also 
+		introduced a novel probabilistic framework (supervised logit machine 
+		learning classifier) that allowed us to separate true feed 
+		constituents from contamination, rather than relying on somewhat 
+		arbitrary cut-offs widely used in metabarcoding to reduce false 
+		positives.</p>`
         // add more as needed
     };
 
